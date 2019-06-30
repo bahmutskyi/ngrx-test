@@ -1,0 +1,10 @@
+<p>new-letter works!</p>
+
+<p>title</p>
+<input type="text" [(ngModel)]="currentLetter.title">
+
+<p>text</p>
+<input type="text" [(ngModel)]="currentLetter.text">
+
+<button routerLink="/new-letter" (click)="addLetter()">add letter</button>
+<button routerLink="/home">back</button>
