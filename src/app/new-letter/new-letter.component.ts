@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addLetter, updateLetter, removeLetter } from '../post.actions';
+import { postLetter } from '../post.actions';
 import { Store } from '@ngrx/store';
 import { Letter } from '../letter';
 
@@ -13,13 +13,14 @@ export class NewLetterComponent implements OnInit {
   currentLetter: Letter = new Letter();
 
   constructor(
-    private store: Store<Letter[]>) { }
+    private store: Store<Letter[]>
+  ) { }
 
   ngOnInit() {
   }
 
   addLetter(): void {
-    this.store.dispatch(addLetter({ title: 'hello', text: 'yo' }));
+    this.store.dispatch(postLetter({ letter: this.currentLetter }));
   }
 
 }

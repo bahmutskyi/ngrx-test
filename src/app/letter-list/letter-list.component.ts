@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Letter } from '../letter';
 import { Store, select } from '@ngrx/store';
-import { addLetter, updateLetter, removeLetter } from '../post.actions';
+import { loadLetters } from '../post.actions';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,11 +19,8 @@ export class LetterListComponent implements OnInit {
     this.letters$ = store.pipe(select('letters'));
   }
 
-  addLetter():void {
-    this.store.dispatch(addLetter({ title: 'hello', text: 'yo' }));
-  }
-
   ngOnInit() {
+    this.store.dispatch(loadLetters());
   }
 
 }
