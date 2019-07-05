@@ -13,7 +13,7 @@ export class NewLetterComponent implements OnInit {
   currentLetter: Letter = new Letter();
 
   constructor(
-    private store: Store<Letter[]>
+    private store: Store<{letters: Letter[]}>
   ) { }
 
   ngOnInit() {

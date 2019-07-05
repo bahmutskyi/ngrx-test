@@ -1,9 +1,13 @@
-<p>title</p>
-<input type="text" [(ngModel)]="currentLetter.title">
+<form clrForm>
+    <clr-input-container>
+        <label>Subject</label>
+        <input clrInput type="text" [(ngModel)]="currentLetter.subject" name="subject" />
+    </clr-input-container>
+    <clr-input-container>
+        <label>Text</label>
+        <input clrInput type="text" [(ngModel)]="currentLetter.text" name="text" />
+    </clr-input-container>
 
-<p>text</p>
-<input type="text" [(ngModel)]="currentLetter.text">
-<br>
-
-<button routerLink="/home" (click)="addLetter()">add letter</button><br>
-<button routerLink="/home">back</button>
+    <button class="btn btn-success" routerLink="/home" (click)="addLetter()">Add</button>
+    <button class="btn btn-primary" routerLink="/home">Back</button>
+</form>

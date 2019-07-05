@@ -1,12 +1,12 @@
 export class Letter {
 
-    constructor(id?, title?, text?) {
+    constructor(id?, subject?, text?) {
         this.id = id;
-        this.title = title;
+        this.subject = subject;
         this.text = text;
     }
 
     id: number;
-    title: string;
+    subject: string;
     text: string;
 }

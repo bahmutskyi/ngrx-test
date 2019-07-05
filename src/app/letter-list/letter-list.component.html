@@ -1,3 +1,25 @@
-<div *ngFor="let l of (letters$ | async)">{{l.title}}</div>
+<div class="clr-row clr-align-items-end">
+    <div class=".clr-col-*-auto clr-offset-sm-0.5">
+        <form clrForm (ngSubmit)="applyFilter(filter.value)">
+            <clr-input-container>
+                <label>Subject</label>
+                <input clrInput type="text" name="subject" [(ngModel)]="filterValue" #filter/>
+            </clr-input-container>
+        </form>
+    </div>
+    <div class=".clr-col-*-auto clr-offset-1">
+        <button class="btn btn-primary" (click)="applyFilter(filter.value)">Filter</button>
+    </div>
+    <div class=".clr-col-*-auto">
+        <button class="btn btn-link" (click)="clearFilter()">Clear</button>
+    </div>
+</div><br>
 
-<button routerLink="/new-letter">new letter</button>
+<clr-accordion>
+    <clr-accordion-panel *ngFor="let l of (letters$ | async)">
+        <clr-accordion-title>{{l.subject}}</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>{{l.text}}</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+
+<button class="btn btn-primary" routerLink="/new-letter">New letter</button>
